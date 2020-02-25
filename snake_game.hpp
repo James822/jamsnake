@@ -1,8 +1,11 @@
 #ifndef SNAKE_GAME_HPP_25629
 #define SNAKE_GAME_HPP_25629
 
+#include "block.hpp"
 #include "fruit.hpp"
 #include "snake.hpp"
+
+#include <deque>
 
 /*
  * Class representing the *model* for snake.
@@ -17,21 +20,20 @@
 class SnakeGame
 {
     private:
-        Snake m_snake;
-        Fruit m_fruit;
         int m_width; 
         int m_height;
+        Snake m_snake;
 
         // takes care of deleting old fruit as well
         void spawnFruit();
 
     public:
-        SnakeGame(int width, int height) : m_width{width}, m_height{height}
-        {
-
-        }
+        SnakeGame(int width, int height);
 
         void tick();
+
+        // returns blocks of fruit and snake
+        std::deque<Block> getBlocks() const;
 };
 
 #endif
