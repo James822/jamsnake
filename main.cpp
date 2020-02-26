@@ -37,6 +37,7 @@ int main()
     cbreak();
     keypad(stdscr, TRUE);	
     timeout(100);
+    curs_set(0);
 
     draw(game);
 
