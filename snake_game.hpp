@@ -34,6 +34,8 @@ class SnakeGame
 
         // returns blocks of fruit and snake
         std::deque<Block> getBlocks() const;
+
+        void changeDirection(Direction dir);
 };
 
 #endif

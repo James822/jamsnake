@@ -34,6 +34,8 @@ class Snake
         std::deque<Block> getBlocks() const { return m_blocks; }
 
         Fruit getFruit() const { return m_fruit; }
+
+        bool m_fruit_eaten{false};
 };
 
 #endif

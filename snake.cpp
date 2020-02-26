@@ -48,6 +48,7 @@ void Snake::move()
        m_blocks.front().getY() == m_fruit.getY())
     {
         m_blocks_to_add += m_growth_rate;
+        m_fruit_eaten = true;
     }
     
     // if no need to extend the snake length, pop off the last block

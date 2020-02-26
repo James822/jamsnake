@@ -11,12 +11,8 @@ SnakeGame::SnakeGame(int width, int height) : m_width{width}, m_height{height},
 
 void SnakeGame::tick()
 {
-    m_snake.move();
-    const Block &head = m_snake.getBlocks().front();
-    const Fruit &fruit = m_snake.getFruit();
-
     // making sure the new fruit does not overlapp with a snake block
-    if( head.getX() == fruit.getX() && head.getY() == fruit.getY() )
+    if( m_snake.m_fruit_eaten )
     {
         bool overlapped_fruit{true};
         Fruit new_fruit{};
@@ -34,7 +30,9 @@ void SnakeGame::tick()
         }
 
         m_snake.updateFruit(new_fruit);
+        m_snake.m_fruit_eaten = false;
     }
+    m_snake.move();
 }
 
 std::deque<Block> SnakeGame::getBlocks() const
@@ -44,4 +42,9 @@ std::deque<Block> SnakeGame::getBlocks() const
     std::deque<Block> total_blocks = m_snake.getBlocks();
     total_blocks.push_back(fruit_block);
     return total_blocks;
+}
+
+void SnakeGame::changeDirection(Direction dir)
+{
+    m_snake.changeDirection(dir);
 }
