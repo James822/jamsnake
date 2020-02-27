@@ -17,7 +17,7 @@ class Snake
         Direction m_dir{Direction::RIGHT};
 
         int m_blocks_to_add{0};
-        int m_growth_rate{6};
+        int m_growth_rate{5};
         Fruit m_fruit; // snake needs to know where fruit is
 
     public:
